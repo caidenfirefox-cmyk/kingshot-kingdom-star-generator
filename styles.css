@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kingshot Kingdom Star Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Kingdom Builder</p>
+          <h1>Kingshot Kingdom Star Generator</h1>
+        </div>
+        <button id="randomize-btn" class="ghost-btn">Randomize</button>
+      </header>
+
+      <main class="layout">
+        <aside class="panel controls">
+          <h2>Generate Setup</h2>
+
+          <label>
+            <span>Star Count</span>
+            <input id="star-count" type="number" min="3" max="18" value="7" />
+          </label>
+
+          <label>
+            <span>Difficulty</span>
+            <select id="difficulty">
+              <option value="1">Peaceful</option>
+              <option value="2">Rising</option>
+              <option value="3" selected>Balanced</option>
+              <option value="4">Hard</option>
+              <option value="5">Epic</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Theme</span>
+            <select id="theme">
+              <option value="any">Any</option>
+              <option value="gold">Gold Rush</option>
+              <option value="forest">Forest Bloom</option>
+              <option value="stone">Stone Keep</option>
+              <option value="magic">Arcane Rift</option>
+              <option value="defense">Fortress</option>
+              <option value="expansion">Expansion</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Kingdom Name</span>
+            <input id="kingdom-name" type="text" maxlength="20" value="Mooncrest" placeholder="Enter kingdom name" />
+          </label>
+
+          <div class="button-row">
+            <button id="generate-btn" class="primary-btn">Generate Stars</button>
+            <button id="copy-btn" class="secondary-btn">Copy Summary</button>
+          </div>
+        </aside>
+
+        <section class="panel results">
+          <div class="summary-header">
+            <div>
+              <p class="eyebrow accent">Kingdom Overview</p>
+              <h2 id="kingdom-title">Mooncrest Dominion</h2>
+            </div>
+            <div class="score-badge" id="total-score">0</div>
+          </div>
+
+          <div class="meta-grid">
+            <div class="meta-card">
+              <span>Alignment</span>
+              <strong id="alignment">Balanced</strong>
+            </div>
+            <div class="meta-card">
+              <span>Best Star</span>
+              <strong id="best-star">—</strong>
+            </div>
+            <div class="meta-card">
+              <span>Focus</span>
+              <strong id="focus">Prosperity</strong>
+            </div>
+            <div class="meta-card">
+              <span>Power Tier</span>
+              <strong id="tier">N/A</strong>
+            </div>
+          </div>
+
+          <div id="star-grid" class="star-grid" aria-live="polite"></div>
+        </section>
+      </main>
+    </div>
+
+    <template id="star-card-template">
+      <article class="star-card">
+        <div class="star-topline">
+          <span class="star-rarity">Epic</span>
+          <span class="star-value">0</span>
+        </div>
+        <h3 class="star-name"></h3>
+        <p class="star-type"></p>
+        <p class="star-bonus"></p>
+        <div class="star-footer">
+          <span class="star-tag"></span>
+          <span class="star-power"></span>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
